@@ -1,0 +1,8 @@
+applications:
+- name: jm-front
+  path: ./dist
+  buildpack: staticfile_buildpack
+  memory: 256M
+  instances: 1
+  routes:
+  - route: jm-front.kpaasta.io
