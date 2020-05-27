@@ -1,8 +1,9 @@
 applications:
-- name: jm-front
+- name: cf-static
   path: ./dist
-  buildpack: staticfile_buildpack
-  memory: 256M
+  buildpacks: 
+    - staticfile_buildpack
+  memory: 128M
   instances: 1
   routes:
-  - route: jm-front.kpaasta.io
+  - route: cfapp-static.kpaasta.io
