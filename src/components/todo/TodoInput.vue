@@ -1,28 +1,23 @@
 <template>
-    <div class="inputBox shadow">
-        <input type="text" v-model="newTodoItem" placeholder="할일을 입력하세요 !!!" v-on:keyup.enter="addTodo">
-        <span class="addContainer" v-on:click="addTodo">
-            <i class="addBtn fas fa-plus" aria-hidden="true"> </i>
-        </span>
+    <div>
+        <b-input-group prepend="TODO" class="mt-3">
+            <b-form-input v-model="newTodoItem" placeholder="할일을 입력하세요 !!!" v-on:keyup.enter="addTodo">></b-form-input>
+            <b-input-group-append>
+                <b-button variant="success" v-on:click="addTodo"> <b-icon icon=plus> </b-icon> </b-button>
+            </b-input-group-append>
+        </b-input-group>
 
-        <modal v-if="showModal" @close="showModal = false">
-            <h3 slot="header"> 경고 </h3>
-            <span slot="footer" @click="showModal = false">
-                할 일을 입력하세요. 
-                <i class="closeModalBtn fas fa-times" aria-hidden="true"> </i>
-            </span>            
-        </modal>
+        <b-modal id="warning-modal" title="Warning..." centered ok-only>
+            <p class="my-4"> 할일을 먼저 입력하세요 !!! </p>
+        </b-modal>
     </div>  
 </template>
 
 <script>
-import Modal from '../common/Modal.vue'
-
 export default {
     data() {
         return {
-            newTodoItem: '',
-            showModal: false
+            newTodoItem: ''
         }
     },
     methods: {
@@ -35,47 +30,13 @@ export default {
                 this.$emit('addTodo', value);
                 this.clearInput();
             } else {
-                this.showModal = !this.showModal;
+                this.$bvModal.show('warning-modal');
             }
         },
         clearInput() {
             this.newTodoItem = '';
         }
-    },
-    components: {
-        Modal: Modal
     }
 }
 </script>
 
-<style scoped>
-input:focus {
-    outline: none;
-}
-
-.inputBox {
-    background-color: white;
-    height: 50px;
-    line-height: 50px;
-    border-radius: 5px;
-}
-
-.inputBox input {
-    border-style: none;
-    font-size: 0.9rem;
-}
-
-.addContainer {
-    float: right;
-    background: linear-gradient(to right, #6478FB, #8763FB);
-    display: block;
-    width: 3rem;
-    border-radius: 0 5px 5px 0;
-}
-
-.addBtn {
-    color: white;
-    vertical-align: middle;
-}
-
-</style>

@@ -2,10 +2,10 @@
   <section>
       <transition-group name="list" tag="ul">
           <li v-for="(todoItem, index) in propsdata" :key="todoItem" class="shadow"> 
-              <i class="checkBtn fas fa-check" aria-hidden="true"> </i>
+              <b-icon class="checkBtn" icon=check> </b-icon>
               {{ todoItem }} 
               <span class="removeBtn" type="button" @click="removeTodo(todoItem, index)">
-                <i class="far fa-trash-alt" aria-hidden="true"></i>
+                <b-icon icon=trash> </b-icon>
               </span>
           </li>
       </transition-group>

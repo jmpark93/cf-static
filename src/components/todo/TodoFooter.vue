@@ -1,6 +1,6 @@
 <template>
-    <div class="clearAllContainer">
-        <span class="clearAllBtn" @click="clearTodo"> Clear All </span>
+    <div>
+        <b-button variant="outline-danger" @click="clearTodo"> Clear All </b-button>
     </div>
 </template>
 
@@ -13,19 +13,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-.clearAllContainer {
-    width: 8.5rem;
-    height: 50px;
-    line-height: 50px;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 5px;    
-}
-
-.clearAllBtn {
-    color: #E20303;
-    display: black;
-}
-</style>
