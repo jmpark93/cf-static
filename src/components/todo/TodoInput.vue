@@ -3,7 +3,7 @@
         <b-input-group prepend="TODO" class="mt-3">
             <b-form-input v-model="newTodoItem" placeholder="할일을 입력하세요 !!!" v-on:keyup.enter="addTodo">></b-form-input>
             <b-input-group-append>
-                <b-button variant="success" v-on:click="addTodo"> <b-icon icon=plus> </b-icon> </b-button>
+                <b-button variant="success" @click="addTodo"> <b-icon icon=plus> </b-icon> </b-button>
             </b-input-group-append>
         </b-input-group>
 
@@ -23,11 +23,9 @@ export default {
     methods: {
         addTodo() {
             if( this.newTodoItem !== "") {
-                // console.log( this.newTodoItem );
                 var value = this.newTodoItem && this.newTodoItem.trim();
-                // var value = this.newTodoItem.trim();
-                // localStorage.setItem(value, value);
-                this.$emit('addTodo', value);
+                // this.$store.commit( 'ADD_TODO', value );
+                this.$store.dispatch( 'addTodo', value );
                 this.clearInput();
             } else {
                 this.$bvModal.show('warning-modal');

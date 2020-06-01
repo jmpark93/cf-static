@@ -6,9 +6,6 @@
 
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav>
-                    <!-- <router-link to="/">Home</router-link> 
-                    <router-link to="/about">About</router-link> 
-                    <router-link to="/todo">Todo</router-link> -->
                     <b-nav-item to="/">Home</b-nav-item>
                     <b-nav-item to="/todo">Todo</b-nav-item>
                     <b-nav-item to="/about">About</b-nav-item>
