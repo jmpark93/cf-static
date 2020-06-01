@@ -1,6 +1,6 @@
 <template>
 
-  <div> 
+  <div id="mainContainer">  
     <TodoHeader> </TodoHeader>
 
     <TodoInput> </TodoInput>
@@ -52,6 +52,11 @@ export default {
 </script>
 
 <style scoped>
+
+#mainContainer {
+    width: 90%;
+    margin: 0 auto;
+}
 
 .list-enter-active, .list-leave-active {
     transition: all 1s;
